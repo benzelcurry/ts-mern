@@ -6,7 +6,7 @@ import Form from './components/Form';
 const App: React.FC = () => {
   return (
     <div className="app">
-      Hello, World!
+      <Form />
       <Display />
     </div>
   );
