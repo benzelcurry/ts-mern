@@ -1,7 +1,9 @@
 import express, { Request, Response, NextFunction } from 'express';
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 const port = 3001;
 
 const messages: {message: string}[] = [];
@@ -11,7 +13,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
 });
 
 app.post('/', (req: Request, res: Response, next: NextFunction) => {
-  const newMsg: {message: string} = {message: req.body.message};
+  const newMsg: {message: string} = {message: req.body.msg};
   messages.push(newMsg);
 })
 
