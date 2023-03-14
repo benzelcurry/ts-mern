@@ -17,7 +17,7 @@ const Display: React.FC = () => {
     <ul>
       { messages.length > 0 ? 
         messages.map(message =>
-          <li key={Math.random()}>{message.message}</li>
+          <li key={Math.random()}>{message.message} - {message.author}, {message.numbers}</li>
         )
         : null
       }
