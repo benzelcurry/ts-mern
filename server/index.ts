@@ -6,14 +6,24 @@ app.use(cors());
 app.use(bodyParser.json());
 const port = 3001;
 
-const messages: {message: string}[] = [];
+interface Post {
+  message: string,
+  author: string,
+  numbers: number
+};
+
+const messages: Post[] = [];
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
   res.status(200).json(messages);
 });
 
 app.post('/', (req: Request, res: Response, next: NextFunction) => {
-  const newMsg: {message: string} = {message: req.body.msg};
+  const newMsg: Post = {
+    message: req.body.msg,
+    author: req.body.author,
+    numbers: req.body.numbers
+  };
   messages.push(newMsg);
 })
 

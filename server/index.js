@@ -10,12 +10,17 @@ const app = (0, express_1.default)();
 app.use(cors());
 app.use(bodyParser.json());
 const port = 3001;
+;
 const messages = [];
 app.get('/', (req, res, next) => {
     res.status(200).json(messages);
 });
 app.post('/', (req, res, next) => {
-    const newMsg = { message: req.body.msg };
+    const newMsg = {
+        message: req.body.msg,
+        author: req.body.author,
+        numbers: req.body.numbers
+    };
     messages.push(newMsg);
 });
 app.listen(port, () => console.log(`Running on Port ${port}`));
